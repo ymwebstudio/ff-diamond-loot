@@ -23,22 +23,22 @@
      ========================================================= */
   const PRODUCTS = [
     { id: 'ff-100',  category: 'freefire', title: '100 Diamonds',  desc: 'Small top-up, instant delivery to your UID.', price: 64,   oldPrice: 80,   badge: null },
-    { id: 'ff-310',  category: 'freefire', title: '310 Diamonds',  desc: 'Popular starter pack for weekly events.',     price: 192,  oldPrice: 240,  badge: 'popular' },
-    { id: 'ff-520',  category: 'freefire', title: '520 Diamonds',  desc: 'Best value per-diamond ratio in this range.', price: 320,  oldPrice: 400,  badge: 'best' },
-    { id: 'ff-1060', category: 'freefire', title: '1060 Diamonds', desc: 'Great for grabbing bundles & elite pass.',    price: 640,  oldPrice: 800,  badge: 'hot' },
-    { id: 'ff-2180', category: 'freefire', title: '2180 Diamonds', desc: 'High-volume pack for serious collectors.',   price: 1280, oldPrice: 1600, badge: 'recommended' },
-    { id: 'ff-5600', category: 'freefire', title: '5600 Diamonds', desc: 'Max value pack — biggest discount tier.',    price: 3200, oldPrice: 4000, badge: 'hot' },
+    { id: 'ff-310',  category: 'freefire', title: '310 Diamonds',  desc: 'Popular starter pack for weekly events.',     price: 150,  oldPrice: 240,  badge: 'popular' },
+    { id: 'ff-520',  category: 'freefire', title: '520 Diamonds',  desc: 'Best value per-diamond ratio in this range.', price: 299,  oldPrice: 400,  badge: 'best' },
+    { id: 'ff-1060', category: 'freefire', title: '1060 Diamonds', desc: 'Great for grabbing bundles & elite pass.',    price: 399,  oldPrice: 800,  badge: 'hot' },
+    { id: 'ff-2180', category: 'freefire', title: '2180 Diamonds', desc: 'High-volume pack for serious collectors.',   price: 999, oldPrice: 1600, badge: 'recommended' },
+    { id: 'ff-5600', category: 'freefire', title: '5600 Diamonds', desc: 'Max value pack — biggest discount tier.',    price: 1599, oldPrice: 4000, badge: 'hot' },
 
-    { id: 'bgmi-60',   category: 'bgmi', title: '60 UC',   desc: 'Quick UC refill for crates and skins.',        price: 71,   oldPrice: 89,   badge: null },
-    { id: 'bgmi-325',  category: 'bgmi', title: '325 UC',  desc: 'Balanced pack, most picked by squads.',        price: 359,  oldPrice: 449,  badge: 'popular' },
-    { id: 'bgmi-660',  category: 'bgmi', title: '660 UC',  desc: 'Best value for royale pass + extras.',         price: 719,  oldPrice: 899,  badge: 'best' },
-    { id: 'bgmi-1800', category: 'bgmi', title: '1800 UC', desc: 'Bulk pack for premium crates & outfits.',      price: 1679, oldPrice: 2099, badge: 'recommended' },
-    { id: 'bgmi-3850', category: 'bgmi', title: '3850 UC', desc: 'High roller pack — huge savings.',             price: 3359, oldPrice: 4199, badge: 'hot' },
+    { id: 'bgmi-60',   category: 'bgmi', title: '60 UC',   desc: 'Quick UC refill for crates and skins.',        price: 60,   oldPrice: 89,   badge: null },
+    { id: 'bgmi-325',  category: 'bgmi', title: '325 UC',  desc: 'Balanced pack, most picked by squads.',        price: 229,  oldPrice: 449,  badge: 'popular' },
+    { id: 'bgmi-660',  category: 'bgmi', title: '660 UC',  desc: 'Best value for royale pass + extras.',         price: 399,  oldPrice: 899,  badge: 'best' },
+    { id: 'bgmi-1800', category: 'bgmi', title: '1800 UC', desc: 'Bulk pack for premium crates & outfits.',      price: 799, oldPrice: 2099, badge: 'recommended' },
+    { id: 'bgmi-3850', category: 'bgmi', title: '3850 UC', desc: 'High roller pack — huge savings.',             price: 999, oldPrice: 4199, badge: 'hot' },
 
-    { id: 'gp-100',  category: 'giftcard', title: 'Google Play ₹100', desc: 'Digital code delivered after verification.', price: 99,   oldPrice: 110,  badge: null },
-    { id: 'gp-300',  category: 'giftcard', title: 'Google Play ₹300', desc: 'Great for app subscriptions & in-app buys.', price: 289,  oldPrice: 320,  badge: 'popular' },
-    { id: 'gp-500',  category: 'giftcard', title: 'Google Play ₹500', desc: 'Best value redeem code in this tier.',       price: 469,  oldPrice: 530,  badge: 'best' },
-    { id: 'gp-1000', category: 'giftcard', title: 'Google Play ₹1000',desc: 'Bulk gift code — ideal for gifting.',        price: 929,  oldPrice: 1050, badge: 'recommended' }
+    { id: 'gp-100',  category: 'giftcard', title: 'Google Play ₹159', desc: 'Digital code delivered after verification.', price: 150,   oldPrice: 159,  badge: null },
+    { id: 'gp-300',  category: 'giftcard', title: 'Google Play ₹799', desc: 'Great for app subscriptions & in-app buys.', price: 399,  oldPrice: 799,  badge: 'popular' },
+    { id: 'gp-500',  category: 'giftcard', title: 'Google Play ₹1000', desc: 'Best value redeem code in this tier.',       price: 500,  oldPrice: 1000,  badge: 'best' },
+    { id: 'gp-1000', category: 'giftcard', title: 'Google Play ₹2500',desc: 'Bulk gift code — ideal for gifting.',        price: 999,  oldPrice: 2500, badge: 'recommended' }
   ];
 
   const BADGE_LABELS = {
