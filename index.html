@@ -1,1 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>FF DIAMOND LOOT — Instant Free Fire, BGMI &amp; Google Play Top-Up</title>
+<meta name="description" content="FF DIAMOND LOOT is a premium top-up store for Free Fire Diamonds, BGMI UC and Google Play Gift Cards. Instant, secure, UPI-powered delivery in minutes.">
+<meta name="keywords" content="free fire diamonds, bgmi uc, google play gift card, ff top up, cheap diamonds, upi top up india">
+<meta name="theme-color" content="#0a0612">
+<meta name="robots" content="index, follow">
 
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="FF DIAMOND LOOT — Instant Gaming Top-Up Store">
+<meta property="og:description" content="Top up Free Fire Diamonds, BGMI UC &amp; Google Play Gift Cards instantly. Secure UPI payments, manual verified delivery.">
+<meta property="og:image" content="assets/upi-qr.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 90,35 75,95 25,95 10,35' fill='%23b026ff'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= LOADING SCREEN ================= -->
+<div id="loading-screen" aria-hidden="true">
+  <div class="loader-core">
+    <svg class="loader-hex" viewBox="0 0 100 100">
+      <polygon points="50,4 92,27 92,73 50,96 8,73 8,27" class="hex-track"/>
+      <polygon points="50,4 92,27 92,73 50,96 8,73 8,27" class="hex-spin"/>
+    </svg>
+    <span class="loader-mark">FF</span>
+  </div>
+  <p class="loader-text">CALIBRATING LOOT VAULT<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
+  <div class="loader-bar"><div class="loader-bar-fill" id="loader-bar-fill"></div></div>
+</div>
+
+<!-- ================= PARTICLE BACKGROUND ================= -->
+<canvas id="particle-canvas" aria-hidden="true"></canvas>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ================= TOASTS ================= -->
+<div id="toast-stack" class="toast-stack" role="status" aria-live="polite"></div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand" aria-label="FF Diamond Loot home">
+      <span class="brand-glyph">
+        <svg viewBox="0 0 100 100" width="30" height="30">
+          <polygon points="50,4 92,27 92,73 50,96 8,73 8,27" fill="none" stroke="url(#brandGrad)" stroke-width="6"/>
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#00eaff"/>
+              <stop offset="1" stop-color="#b026ff"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="brand-text" data-glitch="FF DIAMOND LOOT">FF DIAMOND LOOT</span>
+    </a>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="#games" class="nav-link">Games</a>
+      <a href="#products" class="nav-link">Top-Up</a>
+      <a href="#membership" class="nav-link">Membership</a>
+      <a href="#payment" class="nav-link">Payment</a>
+      <a href="#tracking" class="nav-link">Track Order</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="search-box" role="search">
+        <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="live-search" placeholder="Search diamonds, UC, gift cards..." aria-label="Search products" autocomplete="off">
+      </div>
+      <button class="btn btn-ghost" id="track-btn">Track Order</button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="home">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-glow hero-glow-purple"></div>
+    <div class="hero-glow hero-glow-cyan"></div>
+    <div class="hero-inner">
+      <div class="hero-copy" data-parallax="0.15">
+        <span class="eyebrow">⚡ INSTANT DELIVERY • 24×7 MANUAL VERIFIED</span>
+        <h1 class="hero-title">
+          LOOT YOUR GAME.<br>
+          <span class="gradient-text">STACK YOUR POWER.</span>
+        </h1>
+        <p class="hero-sub">India's premium top-up vault for <strong>Free Fire Diamonds</strong>, <strong>BGMI UC</strong> &amp; <strong>Google Play Gift Cards</strong>. Pay via UPI, get delivered in minutes — no login, no risk, pure speed.</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn btn-primary btn-glow">
+            <span>Start Top-Up</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#payment" class="btn btn-outline">How Payment Works</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num" data-count="48200">0</span>
+            <span class="stat-label">Orders Delivered</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="9800">0</span>
+            <span class="stat-label">Happy Gamers</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="4" data-decimal="9">0</span>
+            <span class="stat-label">Avg Rating / 5</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="7" data-suffix="min">0</span>
+            <span class="stat-label">Avg Delivery</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art" data-parallax="0.3" aria-hidden="true">
+        <div class="orbit-ring ring-1"></div>
+        <div class="orbit-ring ring-2"></div>
+        <div class="orbit-ring ring-3"></div>
+        <div class="loot-crystal">
+          <svg viewBox="0 0 200 200">
+            <defs>
+              <linearGradient id="crystalGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#00eaff"/>
+                <stop offset="50%" stop-color="#b026ff"/>
+                <stop offset="100%" stop-color="#ffd24c"/>
+              </linearGradient>
+            </defs>
+            <polygon points="100,10 175,55 175,145 100,190 25,145 25,55" fill="url(#crystalGrad)" opacity="0.18" stroke="url(#crystalGrad)" stroke-width="2"/>
+            <polygon points="100,45 145,70 145,130 100,155 55,130 55,70" fill="none" stroke="url(#crystalGrad)" stroke-width="1.5" opacity="0.8"/>
+            <line x1="100" y1="10" x2="100" y2="190" stroke="url(#crystalGrad)" stroke-width="1" opacity="0.4"/>
+            <line x1="25" y1="55" x2="175" y2="145" stroke="url(#crystalGrad)" stroke-width="1" opacity="0.4"/>
+            <line x1="25" y1="145" x2="175" y2="55" stroke="url(#crystalGrad)" stroke-width="1" opacity="0.4"/>
+          </svg>
+          <span class="crystal-badge">DIAMOND</span>
+        </div>
+        <span class="floating-chip chip-1">+520 💎</span>
+        <span class="floating-chip chip-2">UC UNLOCKED</span>
+        <span class="floating-chip chip-3">✓ VERIFIED</span>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ================= MARQUEE ================= -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>⚡ INSTANT UPI PAYMENT</span><span>💎 CHEAPEST DIAMOND RATES</span><span>🛡️ MANUAL VERIFIED DELIVERY</span><span>🎮 FREE FIRE • BGMI • GOOGLE PLAY</span><span>⭐ TRUSTED BY 9,800+ GAMERS</span><span>⚡ INSTANT UPI PAYMENT</span><span>💎 CHEAPEST DIAMOND RATES</span><span>🛡️ MANUAL VERIFIED DELIVERY</span><span>🎮 FREE FIRE • BGMI • GOOGLE PLAY</span><span>⭐ TRUSTED BY 9,800+ GAMERS</span>
+    </div>
+  </div>
+
+  <!-- ================= GAMES ================= -->
+  <section class="section" id="games">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-eyebrow">01 / CHOOSE YOUR ARENA</span>
+        <h2 class="section-title">Supported <span class="gradient-text">Games</span></h2>
+        <p class="section-sub">Three vaults. One checkout flow. Pick your battlefield to jump straight to its top-up packs.</p>
+      </div>
+
+      <div class="game-grid">
+        <article class="game-card" data-filter-target="freefire" tabindex="0">
+          <div class="game-art placeholder-art ph-freefire" aria-hidden="true">
+            <span class="ph-label">FREE FIRE ART PLACEHOLDER</span>
+            <svg viewBox="0 0 120 120" class="ph-icon"><polygon points="60,10 105,35 105,85 60,110 15,85 15,35" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="60" cy="60" r="18" fill="currentColor"/></svg>
+          </div>
+          <div class="game-body">
+            <h3>Free Fire</h3>
+            <p>Diamonds delivered straight to your UID. All pack sizes, best-in-class rates.</p>
+            <a href="#products" class="btn btn-outline btn-sm" data-scroll-filter="freefire">View Diamond Packs</a>
+          </div>
+        </article>
+
+        <article class="game-card" data-filter-target="bgmi" tabindex="0">
+          <div class="game-art placeholder-art ph-bgmi" aria-hidden="true">
+            <span class="ph-label">BGMI ART PLACEHOLDER</span>
+            <svg viewBox="0 0 120 120" class="ph-icon"><rect x="20" y="20" width="80" height="80" rx="12" fill="none" stroke="currentColor" stroke-width="4"/><path d="M40 80 L60 35 L80 80" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+          </div>
+          <div class="game-body">
+            <h3>BGMI</h3>
+            <p>Unknown Cash top-ups for every squad. Fast, safe, verified manually.</p>
+            <a href="#products" class="btn btn-outline btn-sm" data-scroll-filter="bgmi">View UC Packs</a>
+          </div>
+        </article>
+
+        <article class="game-card" data-filter-target="giftcard" tabindex="0">
+          <div class="game-art placeholder-art ph-giftcard" aria-hidden="true">
+            <span class="ph-label">GIFT CARD ART PLACEHOLDER</span>
+            <svg viewBox="0 0 120 120" class="ph-icon"><rect x="15" y="35" width="90" height="55" rx="8" fill="none" stroke="currentColor" stroke-width="4"/><line x1="15" y1="55" x2="105" y2="55" stroke="currentColor" stroke-width="4"/></svg>
+          </div>
+          <div class="game-body">
+            <h3>Google Play</h3>
+            <p>Redeemable gift card codes for apps, games, subscriptions &amp; more.</p>
+            <a href="#products" class="btn btn-outline btn-sm" data-scroll-filter="giftcard">View Gift Cards</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRODUCTS ================= -->
+  <section class="section section-alt" id="products">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-eyebrow">02 / THE VAULT</span>
+        <h2 class="section-title">Top-Up <span class="gradient-text">Packs</span></h2>
+        <p class="section-sub">Filter by category or search by name. Prices update live, discounts baked in.</p>
+      </div>
+
+      <div class="filter-bar" role="tablist" aria-label="Product category filter">
+        <button class="filter-chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter-chip" data-filter="freefire" role="tab" aria-selected="false">Free Fire</button>
+        <button class="filter-chip" data-filter="bgmi" role="tab" aria-selected="false">BGMI UC</button>
+        <button class="filter-chip" data-filter="giftcard" role="tab" aria-selected="false">Google Play</button>
+      </div>
+
+      <div class="product-grid" id="product-grid"><!-- injected by script.js --></div>
+      <p class="empty-state" id="empty-state" hidden>No packs match your search. Try a different keyword.</p>
+    </div>
+  </section>
+
+  <!-- ================= MEMBERSHIP ================= -->
+  <section class="section" id="membership">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-eyebrow">03 / SUBSCRIBE &amp; SAVE</span>
+        <h2 class="section-title">Loot <span class="gradient-text">Membership</span></h2>
+        <p class="section-sub">Recurring perks, priority delivery and bonus diamonds for regular grinders.</p>
+      </div>
+
+      <div class="membership-grid">
+        <article class="member-card">
+          <div class="member-glow"></div>
+          <h3>Weekly</h3>
+          <p class="member-price">₹149<span>/week</span></p>
+          <ul class="member-perks">
+            <li>110 Bonus Diamonds</li>
+            <li>Priority queue</li>
+            <li>Telegram support</li>
+          </ul>
+          <button class="btn btn-outline btn-block buy-member" data-plan="Weekly Membership" data-price="149">Activate</button>
+        </article>
+
+        <article class="member-card member-card-featured">
+          <span class="member-tag">MOST POPULAR</span>
+          <div class="member-glow"></div>
+          <h3>Monthly</h3>
+          <p class="member-price">₹499<span>/month</span></p>
+          <ul class="member-perks">
+            <li>500 Bonus Diamonds</li>
+            <li>Priority + Express delivery</li>
+            <li>Dedicated Telegram line</li>
+            <li>Early access to drops</li>
+          </ul>
+          <button class="btn btn-primary btn-block buy-member" data-plan="Monthly Membership" data-price="499">Activate</button>
+        </article>
+
+        <article class="member-card">
+          <div class="member-glow"></div>
+          <h3>Premium</h3>
+          <p class="member-price">₹1299<span>/quarter</span></p>
+          <ul class="member-perks">
+            <li>1500 Bonus Diamonds</li>
+            <li>Instant delivery lane</li>
+            <li>Personal support manager</li>
+            <li>Exclusive gift card drops</li>
+          </ul>
+          <button class="btn btn-outline btn-block buy-member" data-plan="Premium Membership" data-price="1299">Activate</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PAYMENT ================= -->
+  <section class="section section-alt" id="payment">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-eyebrow">04 / CHECKOUT</span>
+        <h2 class="section-title">Pay via <span class="gradient-text">UPI</span></h2>
+        <p class="section-sub">Scan the QR with any UPI app — GPay, PhonePe, Paytm, BHIM, or your bank app.</p>
+      </div>
+
+      <div class="payment-panel">
+        <div class="qr-card">
+          <div class="qr-frame">
+            <img src="assets/upi-qr.png" alt="UPI QR code — scan with any UPI app to pay FF Diamond Loot" width="280" height="280" loading="lazy">
+          </div>
+          <button class="btn btn-primary" id="copy-upi-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span id="copy-upi-label">Copy UPI ID</span>
+          </button>
+          <p class="qr-note">Tap "Copy UPI ID" if your app can't scan — paste it into the "Pay to UPI ID" field.</p>
+        </div>
+
+        <div class="payment-steps">
+          <h3>Payment Instructions</h3>
+          <ol class="steps-list">
+            <li><span class="step-num">1</span><div><strong>Pick your pack</strong><p>Choose a product or membership plan and note the exact amount shown.</p></div></li>
+            <li><span class="step-num">2</span><div><strong>Scan or paste</strong><p>Open any UPI app, scan the QR above, or paste the copied UPI ID manually.</p></div></li>
+            <li><span class="step-num">3</span><div><strong>Pay the exact amount</strong><p>Enter the precise price of your selected pack — do not round up or down.</p></div></li>
+            <li><span class="step-num">4</span><div><strong>Send proof on Telegram</strong><p>Screenshot the payment and your Game UID, then message our support Telegram.</p></div></li>
+            <li><span class="step-num">5</span><div><strong>Manual verification</strong><p>Our team verifies each transaction by hand — delivery follows shortly after.</p></div></li>
+          </ol>
+
+          <div class="notice-box">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+            <p><strong>Manual delivery notice:</strong> All orders are verified and delivered by a real support agent, not an automated bot. Delivery typically takes a few minutes but may take longer during high traffic — thank you for your patience.</p>
+          </div>
+
+          <a href="https://t.me/ffdiamondloot" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block telegram-btn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21.05 2.94a1.6 1.6 0 00-1.63-.27L2.4 9.42c-1.13.44-1.12 1.02-.2 1.3l4.35 1.36 1.66 5.1c.2.56.36.78.73.78.34 0 .5-.16.7-.36l1.68-1.63 4.15 3.06c.76.42 1.31.2 1.5-.7l2.72-12.83c.27-1.1-.24-1.58-.94-1.56z"/></svg>
+            Contact Telegram Support
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ORDER TRACKING ================= -->
+  <section class="section" id="tracking">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-eyebrow">05 / STATUS</span>
+        <h2 class="section-title">Track Your <span class="gradient-text">Order</span></h2>
+        <p class="section-sub">Enter your order ID (from your Telegram confirmation) to see a live simulated status preview.</p>
+      </div>
+
+      <div class="tracker-panel">
+        <form class="tracker-form" id="tracker-form">
+          <input type="text" id="order-id-input" placeholder="e.g. FFL-283910" aria-label="Order ID" required>
+          <button type="submit" class="btn btn-primary">Track</button>
+        </form>
+
+        <div class="tracker-steps" id="tracker-steps">
+          <div class="tracker-line"><div class="tracker-line-fill" id="tracker-line-fill"></div></div>
+
+          <div class="tracker-step" data-step="1">
+            <div class="tracker-dot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <span class="tracker-label">Order Received</span>
+          </div>
+          <div class="tracker-step" data-step="2">
+            <div class="tracker-dot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <span class="tracker-label">Payment Verified</span>
+          </div>
+          <div class="tracker-step" data-step="3">
+            <div class="tracker-dot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <span class="tracker-label">Processing</span>
+          </div>
+          <div class="tracker-step" data-step="4">
+            <div class="tracker-dot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <span class="tracker-label">Completed</span>
+          </div>
+        </div>
+        <p class="tracker-hint" id="tracker-hint">Demo preview — actual status is confirmed by our support team on Telegram.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY US ================= -->
+  <section class="section section-alt" id="why-us">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-eyebrow">06 / WHY GAMERS TRUST US</span>
+        <h2 class="section-title">Built For <span class="gradient-text">Speed &amp; Safety</span></h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Instant Processing</h3>
+          <p>Average delivery time under 7 minutes once payment is verified.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Manual Verification</h3>
+          <p>Every transaction is checked by a human — no shady auto-bots.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Real Telegram Support</h3>
+          <p>Talk to an actual person, any time, for order help or queries.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Secure UPI Only</h3>
+          <p>No card storage, no third-party checkout — pay directly, safely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="faq">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-eyebrow">07 / QUESTIONS</span>
+        <h2 class="section-title">Frequently Asked</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How fast is delivery?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Most orders are verified and delivered within 5–15 minutes. During peak hours it may take a little longer.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What if I enter the wrong UID?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Double-check your in-game UID before paying. Contact Telegram support immediately if you spot an error before delivery.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is UPI payment safe here?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes — you pay directly via your own UPI app to our listed UPI ID. We never ask for OTPs, PINs or card details.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can I get a refund?</button>
+          <div class="faq-a"><p>Refunds are considered case-by-case for undelivered orders after verification. Reach out on Telegram with your payment proof.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= PRODUCT MODAL ================= -->
+<div class="modal-overlay" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-art placeholder-art" id="modal-art"><span class="ph-label">IMAGE PLACEHOLDER</span></div>
+    <div class="modal-body">
+      <h3 id="modal-title">Product Title</h3>
+      <p class="modal-desc" id="modal-desc">Description</p>
+      <div class="modal-price-row">
+        <span class="modal-price" id="modal-price">₹0</span>
+        <span class="modal-old-price" id="modal-old-price">₹0</span>
+      </div>
+      <div class="modal-field">
+        <label for="modal-uid">Game UID / Player ID</label>
+        <input type="text" id="modal-uid" placeholder="Enter your Game UID">
+      </div>
+      <button class="btn btn-primary btn-block" id="modal-confirm">Confirm &amp; Go to Payment</button>
+      <p class="modal-note">You'll be redirected to the UPI payment section. Send payment proof + UID on Telegram to complete your order.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#home" class="brand">
+        <span class="brand-glyph">
+          <svg viewBox="0 0 100 100" width="26" height="26"><polygon points="50,4 92,27 92,73 50,96 8,73 8,27" fill="none" stroke="url(#brandGrad)" stroke-width="6"/></svg>
+        </span>
+        <span class="brand-text">FF DIAMOND LOOT</span>
+      </a>
+      <p>Premium top-up vault for Free Fire, BGMI &amp; Google Play. Fast, verified, gamer-first.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#why-us">About Us</a>
+      <a href="#" id="privacy-link">Privacy Policy</a>
+      <a href="#" id="terms-link">Terms of Service</a>
+      <a href="#faq">FAQ</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="https://t.me/ffdiamondloot" target="_blank" rel="noopener noreferrer">Telegram Support</a>
+      <a href="#payment">Payment Help</a>
+      <a href="#tracking">Track Order</a>
+      <a href="mailto:support@ffdiamondloot.example">Email Us</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>support@ffdiamondloot.example</p>
+      <p>Telegram: @ffdiamondloot</p>
+      <p>UPI: <span id="footer-upi">9557923807@fam</span></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="footer-year"></span> FF DIAMOND LOOT. All rights reserved. Not affiliated with Garena, Krafton or Google.</p>
+  </div>
+</footer>
+
+<!-- ================= LEGAL MODAL ================= -->
+<div class="modal-overlay" id="legal-modal" role="dialog" aria-modal="true" aria-labelledby="legal-title" hidden>
+  <div class="modal-box modal-box-legal">
+    <button class="modal-close" id="legal-close" aria-label="Close">&times;</button>
+    <h3 id="legal-title">Title</h3>
+    <div class="modal-legal-body" id="legal-body"></div>
+  </div>
+</div>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
